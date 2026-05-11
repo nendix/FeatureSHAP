@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feature-shap"
+version = "0.1.0"
+description = "Feature importance analysis for LLM text generation using Shapley values"
+requires-python = ">=3.9"
+dependencies = [
+    "torch",
+    "transformers",
+    "accelerate",
+    "pandas",
+    "numpy",
+    "tqdm",
+    "sentence-transformers",
+    "bert_score",
+    "tree-sitter>=0.23.0,<0.24.0",
+    "tree-sitter-python>=0.23.0,<0.24.0",
+    "tree-sitter-java==0.21.0",
+    "openai",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+vllm = ["vllm>=0.12.0"]
+codebleu = ["codebleu>=0.7.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["feature_shap*"]
