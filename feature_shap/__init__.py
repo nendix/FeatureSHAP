@@ -11,7 +11,10 @@ from .comparators.metrics.codebleu_comparator import CodeBLEUComparator
 
 from .models.model_base import ModelBase
 from .models.huggingface_model import HuggingFaceModel
-from .models.vllm_model import VLLMModel
+try:
+    from .models.vllm_model import VLLMModel
+except ImportError:
+    VLLMModel = None
 from .models.openai_model import OpenAIModel
 
 from .splitters.splitter_base import SplitterBase
