@@ -16,6 +16,8 @@ dependencies = [
     "tqdm",
     "sentence-transformers",
     "bert_score",
+    "evaluate>=0.4.6",
+    "codebleu>=0.7.0",
     "tree-sitter>=0.23.0,<0.24.0",
     "tree-sitter-python>=0.23.0,<0.24.0",
     "tree-sitter-java==0.21.0",
@@ -25,7 +27,6 @@ dependencies = [
 
 [project.optional-dependencies]
 vllm = ["vllm>=0.12.0"]
-codebleu = ["codebleu>=0.7.0"]
 
 [tool.setuptools.packages.find]
 where = ["."]
