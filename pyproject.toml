@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "feature-shap"
 version = "0.1.0"
 description = "Feature importance analysis for LLM text generation using Shapley values"
-requires-python = ">=3.9"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "torch",
     "transformers",
@@ -18,15 +18,19 @@ dependencies = [
     "bert_score",
     "evaluate>=0.4.6",
     "codebleu>=0.7.0",
-    "tree-sitter>=0.23.0,<0.24.0",
-    "tree-sitter-python>=0.23.0,<0.24.0",
-    "tree-sitter-java==0.21.0",
     "openai",
     "scikit-learn",
 ]
 
 [project.optional-dependencies]
+anthropic = ["anthropic>=0.40.0"]
+google = ["google-genai>=1.0.0"]
 vllm = ["vllm>=0.12.0"]
+
+[tool.uv]
+override-dependencies = [
+    "tree-sitter>=0.23.0,<0.24.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
