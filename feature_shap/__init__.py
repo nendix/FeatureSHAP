@@ -11,11 +11,22 @@ from .comparators.metrics.codebleu_comparator import CodeBLEUComparator
 
 from .models.model_base import ModelBase
 from .models.huggingface_model import HuggingFaceModel
+from .models.openai_model import OpenAIModel
+
+try:
+    from .models.anthropic_model import AnthropicModel
+except ImportError:
+    AnthropicModel = None
+
+try:
+    from .models.google_model import GoogleModel
+except ImportError:
+    GoogleModel = None
+
 try:
     from .models.vllm_model import VLLMModel
 except ImportError:
     VLLMModel = None
-from .models.openai_model import OpenAIModel
 
 from .splitters.splitter_base import SplitterBase
 from .splitters.points_splitter import PointsSplitter
@@ -51,8 +62,10 @@ __all__ = [
     # Models
     "ModelBase",
     "HuggingFaceModel",
-    "VLLMModel",
     "OpenAIModel",
+    "AnthropicModel",
+    "GoogleModel",
+    "VLLMModel",
 
     # Comparators
     "ComparatorBase",
