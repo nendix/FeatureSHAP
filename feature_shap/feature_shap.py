@@ -208,7 +208,6 @@ class FeatureSHAP:
 
         for batch in tqdm(batches, desc="Batch generation"):
             batch_outputs = self.model.generate(batch)
-            print(batch_outputs)
             if isinstance(batch_outputs, str):
                 batch_outputs = [batch_outputs]
             

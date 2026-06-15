@@ -37,7 +37,7 @@ class DeepSeekModel(ModelBase):
             raise ValueError("Failed to initialize DeepSeek client. Please check your API key and environment variables.")
 
         self.generation_args = generation_args or {
-            "max_tokens": 512,
+            "max_tokens": 4096,
         }
 
     def generate(self, batch: Union[str, List[str]]) -> Union[str, List[str]]:
