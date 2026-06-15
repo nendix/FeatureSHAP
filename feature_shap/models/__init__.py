@@ -13,6 +13,11 @@ except ImportError:
     GoogleModel = None
 
 try:
+    from .deepseek_model import DeepSeekModel
+except ImportError:
+    DeepSeekModel = None
+
+try:
     from .vllm_model import VLLMModel
 except ImportError:
     VLLMModel = None
@@ -23,5 +28,6 @@ __all__ = [
     "OpenAIModel",
     "AnthropicModel",
     "GoogleModel",
+    "DeepSeekModel",
     "VLLMModel",
 ]
