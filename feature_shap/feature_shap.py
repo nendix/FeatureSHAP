@@ -4,11 +4,14 @@ from feature_shap.splitters.splitter_base import SplitterBase
 from feature_shap.comparators.comparator_base import ComparatorBase
 
 from typing import Optional, List, Tuple, Dict
+import logging
 import random
 from tqdm import tqdm
 import pandas as pd
 import numpy as np
 import re
+
+logger = logging.getLogger(__name__)
 
 
 class FeatureSHAP:
@@ -208,6 +211,7 @@ class FeatureSHAP:
 
         for batch in tqdm(batches, desc="Batch generation"):
             batch_outputs = self.model.generate(batch)
+            logger.debug("Batch outputs:\n%s", "\n---\n".join(str(o) for o in batch_outputs))
             if isinstance(batch_outputs, str):
                 batch_outputs = [batch_outputs]
             
