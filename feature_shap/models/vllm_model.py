@@ -61,7 +61,7 @@ class VLLMModel(ModelBase):
         """
         # Convert generation args to vLLM's SamplingParams
         sampling_params = SamplingParams(
-            max_tokens=self.generation_args.get("max_new_tokens", 4096),
+            max_tokens=self.generation_args.get("max_new_tokens", 32768),
             seed=42,        # set your seed here
             temperature=self.generation_args.get("temperature", 0.0),
             truncate_prompt_tokens=self.max_len-1

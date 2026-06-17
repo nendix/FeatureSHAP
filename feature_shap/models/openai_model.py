@@ -35,7 +35,7 @@ class OpenAIModel(ModelBase):
 
         # Default generation args
         self.generation_args = generation_args or {
-            "max_output_tokens": 4096,
+            "max_output_tokens": 32768,
             # "temperature": 0.0,
         }
 

@@ -34,7 +34,7 @@ class GoogleModel(ModelBase):
             raise ValueError("Failed to initialize Google GenAI client. Please check your API key and environment variables.")
 
         self.generation_args = generation_args or {
-            "max_output_tokens": 4096,
+            "max_output_tokens": 32768,
         }
 
     def generate(self, batch: Union[str, List[str]]) -> Union[str, List[str]]:
